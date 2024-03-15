@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import pandas as pd
+import os
 
 # load the .env file variables
 load_dotenv()
@@ -9,6 +10,6 @@ load_dotenv()
 def db_connect():
     import os
 
-    engine = create_engine(os.getenv("DATABASE_URL"))
+    engine = create_engine(os.getenv("DATABASE_URL"))  # type: ignore
     engine.connect()
     return engine
